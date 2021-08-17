@@ -7,13 +7,21 @@ import {TodoService} from '../services/todo.service';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  constructor(private todoService: TodoService) {
+  public selectedOptions: number[] = [];
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit(): void {}
+
+  public getTodoSelection(): number[] {
+    return [];
   }
 
-  ngOnInit(): void {
-  }
-
-  public getTodo(): string[] {
+  public getTodo(): { id: number; value: string }[] {
     return this.todoService.todoItems;
+  }
+
+  onNgModelChange($event: any){
+    this.selectedOptions=$event;
+    this.todoService.todoSelections = this.selectedOptions;
   }
 }

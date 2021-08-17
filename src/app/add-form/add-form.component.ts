@@ -17,13 +17,23 @@ export class AddFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDelete(): void {
+    const todoItems = this.todoService.todoItems;
+    for (const selection of this.todoService.todoSelections) {
+      todoItems.splice(todoItems.findIndex(item => item.id === selection), 1);
+    }
+  }
+
   onSubmit(): void {
-    console.warn(this.todoForm.value);
     this.addTodo(this.todoForm.get('todoTitle')?.value);
     this.todoForm.reset();
   }
 
   private addTodo(todo: string) {
-    this.todoService.todoItems.push(todo);
+    const todoItems = this.todoService.todoItems;
+    const nextId = todoItems.map((item) => item.id).reverse()[0] + 1;
+    if (todo.trim()) {
+      todoItems.push({id: nextId, value: todo});
+    }
   }
 }
