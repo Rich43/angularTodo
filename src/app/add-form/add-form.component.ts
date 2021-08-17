@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-add-form',
@@ -11,13 +12,18 @@ export class AddFormComponent implements OnInit {
     todoTitle: ''
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private todoService: TodoService) {}
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     console.warn(this.todoForm.value);
+    this.addTodo(this.todoForm.get('todoTitle')?.value);
     this.todoForm.reset();
+  }
+
+  private addTodo(todo: string) {
+    this.todoService.todoItems.push(todo);
   }
 }

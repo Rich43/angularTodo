@@ -1,0 +1,16 @@
+.form-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 16px;
+}
+
+.submit-button {
+  max-height: 36px;
+}

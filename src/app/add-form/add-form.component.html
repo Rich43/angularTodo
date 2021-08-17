@@ -1,2 +1,10 @@
-<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+<form class="form-horizontal" [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field class="form-field">
+      <mat-label>Todo Item:</mat-label>
+      <input matInput id="todoTitle" type="text" formControlName="todoTitle">
+    </mat-form-field>
+  </div>
+
+  <button mat-button mat-raised-button class="submit-button" type="submit">Add</button>
 </form>
