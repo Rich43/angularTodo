@@ -1,3 +1,5 @@
-<p>todo-list works!</p>
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<button mat-button color="primary" class="button" type="submit">Purchase</button>
+<mat-selection-list #shoes>
+  <mat-list-option *ngFor="let item of todoItems">
+    {{item}}
+  </mat-list-option>
+</mat-selection-list>

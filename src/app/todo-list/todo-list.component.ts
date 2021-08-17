@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+  todoItems: string[];
 
-  constructor() { }
+  constructor() {
+    this.todoItems = ["red", "blue", "purple",];
+  }
 
   ngOnInit(): void {
   }
